@@ -8,28 +8,35 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var collectionView: CustomCollectionView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView.dataSource = self
-        collectionView.delegate = self
-    }
+	@IBOutlet weak var collectionView: CustomCollectionView!
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		collectionView.dataSource = self
+		collectionView.delegate = self
+	}
 }
 
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1000
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-                cell.backgroundColor = .blue
-                return cell
-    }
-    
-//    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        print("view controller - did end displaying: \(indexPath.item)")
-//    }
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		1000
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+		cell.backgroundColor = .blue
+		return cell
+	}
+	
+	// DonMag - comment / un-comment these methods
+	//	to see the difference
+	
+//	func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//		print("view controller - did end displaying: \(indexPath.item)")
+//	}
+//
+//	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//		print("view controller - didSelectItemAt", indexPath)
+//	}
 }
